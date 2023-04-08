@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>SVG Liquid Loader Animation Effects</title>
+<link href="style.css" rel="stylesheet"/>
+<script>
+	  // get a reference to the loader element
+	  const loader = document.getElementById('loader');
+
+	  // function to update the animation duration
+	  function updateAnimationDuration(duration) {
+	    loader.style.animationDuration = `${duration}s`;
+	  }
+
+	  // make an HTTP POST request to the Flask endpoint
+	  fetch('/update-duration', {
+	    method: 'POST',
+	    body: new URLSearchParams({
+	      'duration': '10' // replace with desired duration value
+	    })
+	  }).then(response => {
+	    if (response.ok) {
+	      updateAnimationDuration(10); // update animation duration on success
+	    } else {
+	      console.error('Failed to update animation duration:', response.statusText);
+	    }
+	  }).catch(error => {
+	    console.error('Failed to update animation duration:', error);
+	  });
+	</script>
+</head>
+<body>
+<section>
+<svg>
+<filter id="gooey">
+<fegaussianblur in="SourceGraphic" stddeviation="10"></fegaussianblur>
+<fecolormatrix values="
+                              1 0 0 0 0
+                              0 1 0 0 0
+                              0 0 1 0 0
+                              0 0 0 20 -10"></fecolormatrix>
+</filter>
+</svg>
+<div class="loader" id="loader" style="animation-duration: 100s;">
+<span style="--i:1;"></span>
+<span style="--i:2;"></span>
+<span style="--i:3;"></span>
+<span style="--i:4;"></span>
+<span style="--i:5;"></span>
+<span style="--i:6;"></span>
+<span style="--i:7;"></span>
+<span style="--i:8;"></span>
+<span class="rotate" style="--j:0;"></span>
+<span class="rotate" style="--j:1;"></span>
+<span class="rotate" style="--j:2;"></span>
+<span class="rotate" style="--j:3;"></span>
+<span class="rotate" style="--j:4;"></span>
+</div>
+</section>
+</body>
+</html>

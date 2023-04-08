@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>SVG Liquid Loader Animation Effects</title>
+<link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+<section>
+<svg>
+<filter id="gooey">
+<fegaussianblur in="SourceGraphic" stddeviation="15"></fegaussianblur>
+<fecolormatrix values="1 0 0 0 0
+                              0 1 0 0 0
+                              0 0 1 0 0
+                              0 0 0 20 -10"></fecolormatrix>
+</filter>
+</svg>
+<div class="loader" id="loader" style="animation-duration: 1s;">
+<button class="loader-btn"></button>
+<span style="--i:1;"></span>
+<span style="--i:2;"></span>
+<span style="--i:3;"></span>
+<span style="--i:4;"></span>
+<span style="--i:5;"></span>
+<span style="--i:6;"></span>
+<span style="--i:7;"></span>
+<span style="--i:8;"></span>
+<span class="rotate" style="--j:0;"></span>
+<span class="rotate" style="--j:1;"></span>
+<span class="rotate" style="--j:2;"></span>
+<span class="rotate" style="--j:3;"></span>
+<span class="rotate" style="--j:4;"></span>
+</div>
+</section>
+
+
+<div class="status-message" id="status-message"></div>
+<div class="typewriter-container">
+  <p class="typewriter"></p>
+</div>
+
+<section id="second-section"></section>
+
+<script src="scriptNewSection.js"></script>
+<script src="script.js"></script>
+
+<style>
+  .status-message {
+
+     margin-top: 20px;
+  }
+  .typewriter-container {
+
+      margin-top: 50px;
+  }
+</style>
+
+
+<div>
+  <p>This is a simple paragraph inside a div.</p>
+</div>
+
+
+
+
+
+
+</body>
+
+
+
+
+
+
+
+
+</html>

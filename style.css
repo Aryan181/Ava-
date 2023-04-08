@@ -1,0 +1,207 @@
+/* Universal styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Section styles */
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #0c1b21;
+}
+
+/* Loader styles */
+.loader {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  filter: url(#gooey);
+  animation: animate 16s linear infinite;
+  overflow: hidden;
+  z-index: 0;
+
+}
+
+
+.loader span {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: block;
+  transform: rotate(calc(45deg * var(--i)));
+}
+
+.loader span:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: calc(50% - 5px);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  box-shadow: 0 0 30px #00BCD4;
+  background: linear-gradient(45deg, #c7eeff, #03A9F4);
+}
+
+.rotate {
+  animation: animate 4s ease-in-out infinite;
+  animation-delay: calc(-0.2s * var(--j));
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* SVG styles */
+svg {
+  width: 0;
+  height: 0;
+}
+
+
+/* add styles for the loader button */
+.loader-btn {
+  position: relative;
+  top: calc(50% - 25px);
+  left: calc(50% - 25px);
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  background-color: #c7eeff;
+  box-shadow: 0 0 30px #00BCD4;
+  z-index: 1;
+  cursor: pointer;
+}
+/* add styles to display the hover text on hover */
+.loader-container:hover + .hover-text {
+  display: block;
+}
+
+.hover-text {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  background-color: #c7eeff;
+  color: #000;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 10px;
+  display: none;
+}
+
+/* add styles for the loader button */
+.loader-btn {
+  position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 25px);
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  background-color: #c7eeff;
+  box-shadow: 0 0 30px #00BCD4;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.loader-btn::after {
+  content: "Your text here";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 5px 10px;
+  background-color: #c7eeff;
+  color: #000;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 5px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.loader-btn:hover::after {
+  opacity: 1;
+}
+
+.status-message {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 16px;
+  font-weight: bold;
+  color: #c7eeff;
+}
+
+.typewriter {
+  overflow: hidden;
+  border-right: 0.15em solid #c7eeff;
+  white-space: nowrap;
+  letter-spacing: 0.15em;
+
+}
+
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #c7eeff }
+}
+
+.blink-caret {
+  border-right: 0.15em solid #c7eeff;
+  animation: blink 0.5s step-end infinite;
+}
+
+@keyframes blink {
+  from, to { border-color: transparent }
+  50% { border-color: #c7eeff }
+}
+
+
+.typewriter-container {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.typewriter {
+  color: white;
+  font-family: 'Roboto Mono', monospace;
+  overflow: hidden;
+  border-right: 0.15em solid #c7eeff;
+  white-space: nowrap;
+  letter-spacing: 0.15em;
+  font-size: 12px;
+}
+.blink-caret {
+  border-right: 0.15em solid #c7eeff;
+  animation: blink 0.5s step-end infinite;
+}
+
+
+
+
